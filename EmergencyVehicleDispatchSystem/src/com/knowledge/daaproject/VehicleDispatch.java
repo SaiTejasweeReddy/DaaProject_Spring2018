@@ -28,7 +28,6 @@ public class VehicleDispatch {
 		List<Integer> type = new ArrayList<>();
 		List<Integer> zipcode = new ArrayList<>();
 		HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>();
-		int prevDistance;
 		int flag = 0;
 		final Path path = Paths.get("AvailableVehicles.txt");
 		final List<VehicleDispatch> parsed;
@@ -43,9 +42,6 @@ public class VehicleDispatch {
 				return new VehicleDispatch(x, y, z);
 			}).collect(Collectors.toList());
 		}
-		// System.out.println(id);
-		// System.out.println(type);
-		// System.out.println(zipcode);
 		DijkstraAlgorithm dj = new DijkstraAlgorithm();
 		List<Integer> dist = new ArrayList<>();
 		int distValue = 0;
@@ -56,7 +52,6 @@ public class VehicleDispatch {
 		int min = 0;
 		List<Integer> vehicleDist = new ArrayList<>();
 		List<Integer> vehicleIds = new ArrayList<>();
-		// OutputFile outFile = new OutputFile();
 		int typeOld = 0;
 		for (i = 0; i < typeNew.size(); i++) {
 

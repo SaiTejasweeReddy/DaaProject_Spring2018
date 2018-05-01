@@ -25,7 +25,7 @@ public class Main {
 	 * @throws Exception
 	 */
 	public static void main(final String[] args) throws Exception {
-		final Path path = Paths.get("EmergencyVehicleRequest.txt");
+		final Path path = Paths.get("EmergencyVehicleRequest.txt"); //feeding the request file
 		final List<Main> parsed;
 		List<Integer> id = new ArrayList<>();
 		List<Integer> type = new ArrayList<>();
