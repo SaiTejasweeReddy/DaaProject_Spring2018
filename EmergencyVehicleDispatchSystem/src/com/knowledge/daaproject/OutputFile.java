@@ -14,7 +14,7 @@ public class OutputFile {
 	List<Integer> vehicleid = new ArrayList<>();
 	List<Integer> distance = new ArrayList<>();
 
-	// if id is present in the list then check for small one in them and insert that
+	// if id is found in the list then check for minimum in them and insert that
 	public void getFileOutput() throws IOException {
 		File dir = new File("C:\\Users\\HP\\Desktop\\DAA\\DAAOUTPUT");
 

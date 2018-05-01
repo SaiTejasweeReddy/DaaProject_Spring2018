@@ -6,103 +6,57 @@ import java.util.*;
 
 public class DijkstraAlgorithm {
 
-	
 	private static final Graph.Edge[] GRAPH = {
+			// a = 64108
+			// b = 64109
+			// c = 64110
+			// d = 64111
+			// e = 64112
+			// f = 64113
+			// new Graph.Edge("64108", "64110", 6), new Graph.Edge("64109", "64110", 10),
+			// new Graph.Edge("64108", "64113", 1), new Graph.Edge("64109", "64111", 15),
+			// new Graph.Edge("64110", "64111", 1), new Graph.Edge("64110", "64111", 5),
+			// new Graph.Edge("64111", "64112", 6), new Graph.Edge("64113", "64109", 6),
 			
-// a = 64108
+		    new Graph.Edge("64108", "64119", 6), new Graph.Edge("64109", "64112", 5),
+			new Graph.Edge("64119", "64108", 6), new Graph.Edge("64112", "64109", 5),
 			
-// b = 64109
+			new Graph.Edge("64110", "64109", 4), new Graph.Edge("64110", "64112", 3),
+			new Graph.Edge("64109", "64110", 4), new Graph.Edge("64112", "64110", 3),
 			
-// c = 64110
+			new Graph.Edge("64111", "64112", 3), new Graph.Edge("64112", "64108", 4),
+			new Graph.Edge("64112", "64111", 3), new Graph.Edge("64108", "64112", 4),
 			
-// d = 64111
+			new Graph.Edge("64112", "64119", 12), new Graph.Edge("64114", "64120", 2),
+			new Graph.Edge("64119", "64112", 12), new Graph.Edge("64120", "64114", 2),
 			
-// e = 64112
+			new Graph.Edge("64114", "64122", 4), new Graph.Edge("64114", "64127", 7),
+			new Graph.Edge("64122", "64114", 4), new Graph.Edge("64127", "64114", 7),
 			
-// f = 64113
+			new Graph.Edge("64115", "64108", 4), new Graph.Edge("64116", "64128", 4),
+			new Graph.Edge("64108", "64115", 4), new Graph.Edge("64128", "64116", 4),
 			
-// new Graph.Edge("64108", "64110", 6), new Graph.Edge("64109", "64110", 10),
+			new Graph.Edge("64116", "64122", 5), new Graph.Edge("64119", "64114", 6),
+			new Graph.Edge("64122", "64116", 5), new Graph.Edge("64114", "64119", 6),
+						
+			new Graph.Edge("64119", "64127", 5), new Graph.Edge("64120", "64119", 5),
+			new Graph.Edge("64127", "64119", 5), new Graph.Edge("64119", "64120", 5),
 			
-// new Graph.Edge("64108", "64113", 1), new Graph.Edge("64109", "64111", 15),
+			new Graph.Edge("64122", "64123", 8), new Graph.Edge("64123", "64120", 2),
+			new Graph.Edge("64123", "64122", 8), new Graph.Edge("64120", "64123", 2),
 			
-// new Graph.Edge("64110", "64111", 1), new Graph.Edge("64110", "64111", 5),
+			new Graph.Edge("64126", "64110", 3), new Graph.Edge("64111", "64110", 4),
+			new Graph.Edge("64110", "64126", 3), new Graph.Edge("64110", "64111", 4),
 			
-// new Graph.Edge("64111", "64112", 6), new Graph.Edge("64113", "64109", 6),
-
+			new Graph.Edge("64126", "64111", 3), new Graph.Edge("64127", "64128", 6),
+			new Graph.Edge("64111", "64126", 3), new Graph.Edge("64128", "64127", 6),
 			
-		 
-new Graph.Edge("64108", "64119", 6), new Graph.Edge("64109", "64112", 5),
-			
-new Graph.Edge("64119", "64108", 6), new Graph.Edge("64112", "64109", 5),
-
-			
-new Graph.Edge("64110", "64109", 4), new Graph.Edge("64110", "64112", 3),
-			
-new Graph.Edge("64109", "64110", 4), new Graph.Edge("64112", "64110", 3),
-
-			
-			
-new Graph.Edge("64111", "64112", 3), new Graph.Edge("64112", "64108", 4),
-			
-new Graph.Edge("64112", "64111", 3), new Graph.Edge("64108", "64112", 4),
-
-			
-
-new Graph.Edge("64112", "64119", 12), new Graph.Edge("64114", "64120", 2),
-			
-new Graph.Edge("64119", "64112", 12), new Graph.Edge("64120", "64114", 2),
-
-			
-			
-new Graph.Edge("64114", "64122", 4), new Graph.Edge("64114", "64127", 7),
-			
-new Graph.Edge("64122", "64114", 4), new Graph.Edge("64127", "64114", 7),
-
+			new Graph.Edge("64128", "64114", 5), new Graph.Edge("64128", "64122", 7),
+			new Graph.Edge("64114", "64128", 5), new Graph.Edge("64122", "64128", 7),
 			
 	
-new Graph.Edge("64115", "64108", 4), new Graph.Edge("64116", "64128", 4),
-		
-new Graph.Edge("64108", "64115", 4), new Graph.Edge("64128", "64116", 4),
-
-			
-			
-new Graph.Edge("64116", "64122", 5), new Graph.Edge("64119", "64114", 6),
-
-new Graph.Edge("64122", "64116", 5), new Graph.Edge("64114", "64119", 6),
-
-						
-
-new Graph.Edge("64119", "64127", 5), new Graph.Edge("64120", "64119", 5),
-			
-new Graph.Edge("64127", "64119", 5), new Graph.Edge("64119", "64120", 5),
-
-			
-			
-new Graph.Edge("64122", "64123", 8), new Graph.Edge("64123", "64120", 2),
-		
-new Graph.Edge("64123", "64122", 8), new Graph.Edge("64120", "64123", 2),
-
-			
-		
-new Graph.Edge("64126", "64110", 3), new Graph.Edge("64111", "64110", 4),
-			
-new Graph.Edge("64110", "64126", 3), new Graph.Edge("64110", "64111", 4),
-
-			
-		
-new Graph.Edge("64126", "64111", 3), new Graph.Edge("64127", "64128", 6),
-			
-new Graph.Edge("64111", "64126", 3), new Graph.Edge("64128", "64127", 6),
-
-			
-		
-new Graph.Edge("64128", "64114", 5), new Graph.Edge("64128", "64122", 7),
-			
-new Graph.Edge("64114", "64128", 5), new Graph.Edge("64122", "64128", 7),
-			
-
-};
-	private static String START
+	};
+	private static String START;
 	private static String END;
 
 /*	public static void main(String[] args) {
@@ -125,11 +79,8 @@ new Graph.Edge("64114", "64128", 5), new Graph.Edge("64122", "64128", 7),
 
 	public int getDistance(String START, String END) {
 		Graph g = new Graph(GRAPH);
-		// this.START = START;
-		// this.END = END;
 		g.dijkstra(START);
 		int distance = g.printPath(END);
-		// return this.dist;
 		return distance;
 	}
 
