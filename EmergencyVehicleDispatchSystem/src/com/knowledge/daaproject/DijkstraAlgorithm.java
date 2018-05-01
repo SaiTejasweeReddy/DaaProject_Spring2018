@@ -5,8 +5,6 @@ import java.util.*;
 
 
 public class DijkstraAlgorithm {
-	
-	//static int g = 7;
 
 	private static final Graph.Edge[] GRAPH = {
 			// a = 64108

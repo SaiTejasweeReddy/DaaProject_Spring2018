@@ -42,8 +42,8 @@ public class Main {
 			}).collect(Collectors.toList());
 		}
 
-		VehicleDispatch sv = new VehicleDispatch(1, 2, 3);
-		sv.getVehicle(id, type, zipcode);
+		VehicleDispatch vd = new VehicleDispatch(1, 2, 3);
+		vd.getVehicle(id, type, zipcode);
 	}
 
 }
