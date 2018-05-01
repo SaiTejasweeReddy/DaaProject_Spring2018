@@ -23,6 +23,8 @@ public class VehicleDispatch {
 		this.zipcode = zipcode;
 	}
 
+
+	/*This method searches for the availble vehicle of same type as of the request and dispatches the nearest available vehicle*/
 	public void getVehicle(List<Integer> idNew, List<Integer> typeNew, List<Integer> zipcodeNew) throws Exception {
 		List<Integer> id = new ArrayList<>();
 		List<Integer> type = new ArrayList<>();
@@ -68,12 +70,12 @@ public class VehicleDispatch {
 			int[] distArray = new int[1000];
 			for (j = 0; j < type.size(); j++) {
 				int b = type.get(j);
-				if (a == (b)) {
+				if (a == (b)) {	//Condition to check whether the requested vehicle type and available vehicle type are same
 					if (zipcodeNew.get(i).equals(zipcode.get(j))) {
 //						System.out.println(id.get(j) + "Id Of Vehicle");
 						vehicleIds.add(id.get(i));
 						dist.add(0);
-						// we should remove comments
+
 						break;
 						// return vehicle with distance 1
 					} else if (zipcodeNew.get(i) != (zipcode.get(j))) {
