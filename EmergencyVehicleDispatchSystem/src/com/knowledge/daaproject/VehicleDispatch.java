@@ -23,8 +23,6 @@ public class VehicleDispatch {
 		this.zipcode = zipcode;
 	}
 
-
-	/*This method searches for the availble vehicle of same type as of the request and dispatches the nearest available vehicle*/
 	public void getVehicle(List<Integer> idNew, List<Integer> typeNew, List<Integer> zipcodeNew) throws Exception {
 		List<Integer> id = new ArrayList<>();
 		List<Integer> type = new ArrayList<>();
@@ -61,21 +59,18 @@ public class VehicleDispatch {
 				vehicleIds.add(value);
 				dist.add(min);
 				vehicleDist = new ArrayList<>();
-//				System.out.println(value + "Value");
 				flag = 0;
-
 			}
+			
 			int a = typeNew.get(i);
 
 			int[] distArray = new int[1000];
 			for (j = 0; j < type.size(); j++) {
 				int b = type.get(j);
-				if (a == (b)) {	//Condition to check whether the requested vehicle type and available vehicle type are same
+				if (a == (b)) {
 					if (zipcodeNew.get(i).equals(zipcode.get(j))) {
-//						System.out.println(id.get(j) + "Id Of Vehicle");
 						vehicleIds.add(id.get(i));
 						dist.add(0);
-
 						break;
 						// return vehicle with distance 1
 					} else if (zipcodeNew.get(i) != (zipcode.get(j))) {
@@ -94,8 +89,7 @@ public class VehicleDispatch {
 								min = number;
 							}
 						}
-						// dist.add(min);
-						// we should remove this
+					
 						if (x > 0) {
 							value = hmap.get(min);
 							typeOld = typeNew.get(i);
@@ -106,25 +100,9 @@ public class VehicleDispatch {
 				}
 
 			}
-			// vehicleIds.add(id.get(j));
-			// Collections.sort(dist);
-			// distValue = dist.get(0);
-
-			// System.out.println("Distance" + distValue);
-			// if (distValue < distance) {
-			// outFile.getFileOutput(idNew.get(i), typeNew.get(i), zipcodeNew.get(i),
-			// id.get(j), distValue);
-			// }
-
+			
 			// compare with previous values and send the lower value
-			/*
-			 * else { System.out.println("Types Not Equal"); }
-			 */
-			// System.out.println("TeamProject");
-
-			// it should execute in the last
-
-		}
+			}
 		OutputFile out = new OutputFile();
 		out.number = idNew;
 		out.vehicleid = vehicleIds;
@@ -132,12 +110,7 @@ public class VehicleDispatch {
 		out.vehiclezipcode = zipcodeNew;
 		out.distance = dist;
 		out.getFileOutput();
-		/*
-		 * for (int i = 0; i < type.size(); i++) { if (vehicleid == type.get(i) &&
-		 * vehiclezipcode == zipcode.get(i))
-		 * System.out.println("vehicle found in the zipcode"); else { DijkstraAlgorithm dj = new
-		 * DijkstraAlgorithm(); } }
-		 */
+		
 		// Search vehicleid in this id and match with zipcode send the vehicle if it is
 		// not available then send vehicle Zip code DijkstraAlgorithm's Algorithm and
 		// get the nearest vehicle
