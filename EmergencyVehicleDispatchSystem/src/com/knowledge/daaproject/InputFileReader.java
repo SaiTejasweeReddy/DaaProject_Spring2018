@@ -12,9 +12,9 @@ public class InputFileReader {
 		/*
 		 * for (int i = 0; i < data.length; i++) { System.out.println(data[i]); }
 		 */
-	}
 
-	public static int[] readFiles(String file) {
+	}
+public static int[] readFiles(String file) {
 		try {
 			File f = new File(file);
 			Scanner s = new Scanner(f);
@@ -30,7 +30,7 @@ public class InputFileReader {
 				int x = arr[0];
 				int y = arr[1];
 				System.out.println(arr[i]);
-			}
+		}
 			return arr;
 		} catch (Exception e) {
 			return null;
