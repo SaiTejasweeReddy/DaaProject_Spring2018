@@ -8,7 +8,7 @@ public class InputFileReader {
 
 	public static void main(String[] args) {
 		int[] data = readFiles("AvailableVehicles.txt");
-		// System.out.println(Arrays.toString(data));
+		
 		/*
 		 * for (int i = 0; i < data.length; i++) { System.out.println(data[i]); }
 		 */
